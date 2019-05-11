@@ -1,7 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbc00737-223a-434a-bf26-f53108af4020" name="Default Changelist" comment="" />
+    <list default="true" id="dbc00737-223a-434a-bf26-f53108af4020" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/target/classes/2016-10-01_06_p1_invalid.1475274123982.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/conf.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp/csv/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp/csv/.part-00000-c6bc9546-2f38-4a84-97f1-ebff5a6bca59-c000.csv.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp/csv/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp/csv/part-00000-c6bc9546-2f38-4a84-97f1-ebff5a6bca59-c000.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00000-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00001-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00002-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00003-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00004-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00005-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00006-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/.part-00007-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00000-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00001-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00002-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00003-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00004-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00005-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00006-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dmp1/part-00007-2b2395ec-8fd1-4fb3-9576-0e10c3cbf68f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/kafka/producer.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/local/dbcp-config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/log_statics.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/production/dbcp-config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/raw_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/score.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/dbcp-config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/bean/ArealDisTmpBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/bean/ArealDistributionBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/bean/CityCountBean.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/bean/networkType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/constants/Constants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/constants/DeployMode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/dao/ICityCount.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/dao/INetworkImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/dao/impl/CityCountImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/dao/impl/NetWorkImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution$$anonfun$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution$$anonfun$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution$$anonfun$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution$$anonfun$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution$$anonfun$saveAndSaveToDB$1$$anonfun$apply$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution$$anonfun$saveAndSaveToDB$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ArealDistribution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ClientPlantform$$anonfun$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ClientPlantform$$anonfun$saveAndSaveToDB$1$$anonfun$apply$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ClientPlantform$$anonfun$saveAndSaveToDB$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ClientPlantform$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/ClientPlantform.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/MediaAnalysis$$anonfun$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/MediaAnalysis$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/MediaAnalysis.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test$$anonfun$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test$$anonfun$main$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test2$$anonfun$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test2$$anonfun$3$$anonfun$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test2$$anonfun$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test2$$anonfun$main$1$$anonfun$apply$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test2$$anonfun$main$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test2$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/job/Test2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/utils/DBCPUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/utils/DateUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/utils/NumberUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/utils/ResourcesUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/utils/StringUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/top/newforesee/utils/ValidationUtils.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,6 +129,18 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/ClientPlantform.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-799">
+              <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
+              <folding>
+                <element signature="e#28#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/Test.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
@@ -64,11 +152,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/Test2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+            <state relative-caret-position="160">
+              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
               <folding>
                 <element signature="e#28#77#0" expanded="true" />
               </folding>
@@ -93,11 +181,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/ArealDistribution.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="111" column="27" selection-start-line="111" selection-start-column="27" selection-end-line="111" selection-end-column="27" />
+            <state relative-caret-position="104">
+              <caret line="156" column="20" lean-forward="true" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
               <folding>
                 <element signature="e#28#44#0" expanded="true" />
               </folding>
@@ -255,15 +343,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="newforesee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dmp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dmp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="newforesee" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dmp" type="b2602c69:ProjectViewProjectNode" />
@@ -466,15 +545,24 @@
       <workItem from="1557558088260" duration="2171000" />
       <workItem from="1557562751051" duration="695000" />
       <workItem from="1557563464547" duration="804000" />
-      <workItem from="1557564765458" duration="797000" />
+      <workItem from="1557564765458" duration="1258000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1557565851253</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1557565851253</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116567000" />
+    <option name="totallyTimeSpent" value="117028000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15763944" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -492,7 +580,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.3295711" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3283859" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3283859" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50106496" side_tool="true" weight="0.2096956" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49893504" weight="0.3283859" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -546,6 +634,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.2.2/spark-core_2.11-2.2.2-sources.jar!/org/apache/spark/rdd/RDD.scala" />
@@ -711,16 +803,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/dmp/csv/part-00000-c6bc9546-2f38-4a84-97f1-ebff5a6bca59-c000.csv" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/ClientPlantform.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
-          <folding>
-            <element signature="e#28#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/Test.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -758,16 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/ArealDistribution.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="111" column="27" selection-start-line="111" selection-start-column="27" selection-end-line="111" selection-end-column="27" />
-          <folding>
-            <element signature="e#28#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/top/newforesee/utils/ParamUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-448">
@@ -787,10 +859,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/Test2.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        <state relative-caret-position="160">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
           <folding>
             <element signature="e#28#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/ClientPlantform.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-799">
+          <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
+          <folding>
+            <element signature="e#28#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/top/newforesee/job/ArealDistribution.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="156" column="20" lean-forward="true" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
+          <folding>
+            <element signature="e#28#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
