@@ -12,7 +12,7 @@ object Test2 {
   def main(args: Array[String]): Unit = {
     val conf: SparkConf = new SparkConf().setAppName("wholeTextFiles").setMaster("local[*]")
     val context = new SparkContext(conf)
-    val rdd: RDD[String] = context.textFile("D:\\Idea project\\dmp\\src\\main\\resources\\score.txt")
+    val rdd: RDD[String] = context.textFile("D:\\Idea project\\data\\src\\main\\resources\\score.txt")
     val rddtuple: RDD[(String, Int)] = rdd.map((x: String) => {
       val strings: Array[String] = x.split(" ")
       (strings(0), strings(1).toInt)

@@ -4,7 +4,7 @@ package top.newforesee.bean;
  * xxx
  * creat by newforesee 2019-01-26
  */
-public class networkType {
+public class NetworkType {
 
     private String networkTypes;
     private int originalRequest;
@@ -19,10 +19,10 @@ public class networkType {
     private double biddingRate;
     private double clickRate;
 
-    public networkType() {
+    public NetworkType() {
     }
 
-    public networkType(String networkTypes, int originalRequest, int validRequest, int advRequest, int partInBidding, int successBidding, int show, int click, int advCost, int advCharge, double biddingRate, double clickRate) {
+    public NetworkType(String networkTypes, int originalRequest, int validRequest, int advRequest, int partInBidding, int successBidding, int show, int click, int advCost, int advCharge, double biddingRate, double clickRate) {
         this.networkTypes = networkTypes;
         this.originalRequest = originalRequest;
         this.validRequest = validRequest;

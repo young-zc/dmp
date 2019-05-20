@@ -24,7 +24,7 @@ object MediaAnalysis {
     * @param session
     */
   private def createTmpTable(ssc: SQLContext, session: SparkSession): Unit = {
-    val ods: Dataset[Row] = session.read.parquet("/Users/newforesee/Intellij Project/DMP/src/main/resources/dmp1").coalesce(3)
+    val ods: Dataset[Row] = session.read.parquet("/Users/newforesee/Intellij Project/DMP/src/main/resources/data_raw").coalesce(3)
 
     val rowRdd: RDD[Row] = ods.rdd.map((r: Row) => {
       val strings: Array[String] = r.toString().split(",")

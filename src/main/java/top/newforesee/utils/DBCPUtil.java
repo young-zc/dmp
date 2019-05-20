@@ -14,12 +14,7 @@ import java.util.Properties;
 
 /**
  * Description： 关于DBCP和C3P0的说明,这两个都是常见的数据库连接池技术<br/>
- * Copyright (c) ， 2018， Jansonxu <br/>
- * This program is protected by copyright laws. <br/>
- *
- * @author 徐文波
- * @version : 1.0
- */
+  */
 public class DBCPUtil {
     private static DataSource ds;
     private static Properties properties = new Properties();

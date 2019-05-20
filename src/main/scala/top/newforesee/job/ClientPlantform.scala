@@ -6,10 +6,10 @@ import java.util.Properties
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{IntegerType, StringType, StructType}
 import org.apache.spark.sql._
-import top.newforesee.bean.{CityCountBean, networkType}
+import top.newforesee.bean.{CityCountBean, NetworkType}
 import top.newforesee.dao.INetworkImpl
 import top.newforesee.dao.impl.{CityCountImpl, NetWorkImpl}
-import top.newforesee.utils.{DBCPUtil, ResourcesUtils}
+import top.newforesee.utils.{DBCPUtil, ResourcesUtils, Utils}
 
 /**
   * xxx
@@ -20,7 +20,7 @@ object ClientPlantform {
 
   def main(args: Array[String]): Unit = {
     //初始化
-    val spark: SparkSession = firestOfAll()
+    val spark: SparkSession = Utils.getSpark(this.getClass.getSimpleName)
     val sc: SQLContext = spark.sqlContext
     //加载数据并注册临时表device,tmp_device
     loadData(spark: SparkSession, sc: SQLContext)
@@ -48,7 +48,7 @@ object ClientPlantform {
       "(case when show=0 then 0 else click/show end) clickRate " +
       "from (select " +
 
-      "(case networkType when 1 then '2G' when 2 then '3G' when 3 then 'wifi' when 5 then '4G' else '未知' end) networkTypes, " +
+      "(case NetworkType when 1 then '2G' when 2 then '3G' when 3 then 'wifi' when 5 then '4G' else '未知' end) networkTypes, " +
 
       "sum(originalRequest) originalRequest, " +
       "sum(validRequest) validRequest, " +
@@ -96,7 +96,7 @@ object ClientPlantform {
 
 
     val properties: Properties = DBCPUtil.getProperties
-    //networkType.write.jdbc(properties.getProperty("url"), "networkTypes", properties)
+    //NetworkType.write.jdbc(properties.getProperty("url"), "networkTypes", properties)
     //operator.write.jdbc(properties.getProperty("url"), "operator", properties)
 
   }
@@ -106,13 +106,13 @@ object ClientPlantform {
     *
     * @param rddCc 结果数据集
     */
-  private def saveAndSaveToDB(rddCc: RDD[networkType]): Unit = {
+  private def saveAndSaveToDB(rddCc: RDD[NetworkType]): Unit = {
     rddCc.saveAsTextFile("/Users/newforesee/Intellij Project/DMP/src/main/resources/json")
-    rddCc.foreachPartition((iter: Iterator[networkType]) => {
+    rddCc.foreachPartition((iter: Iterator[NetworkType]) => {
       if (iter.nonEmpty) {
         val dao: INetworkImpl = new NetWorkImpl
-        val beans: util.LinkedList[networkType] = new util.LinkedList[networkType]
-        iter.foreach((cc: networkType) => {
+        val beans: util.LinkedList[NetworkType] = new util.LinkedList[NetworkType]
+        iter.foreach((cc: NetworkType) => {
           beans.add(cc)
         })
         dao.saveToDB(beans)
@@ -127,7 +127,7 @@ object ClientPlantform {
     * @param sc
     */
   def loadData(spark: SparkSession, sc: SQLContext) = {
-    val ods: Dataset[Row] = spark.read.parquet("/Users/newforesee/Intellij Project/DMP/src/main/resources/dmp1").coalesce(3)
+    val ods: Dataset[Row] = spark.read.parquet("/Users/newforesee/Intellij Project/DMP/src/main/resources/data_raw").coalesce(3)
     val rowRDD: RDD[Row] = ods.rdd.map((row: Row) => {
       //1,移动  2,联通  3,电信  4,未知
       //1,2G  2,3G  3,wifi  4,未知  5,4G
@@ -149,7 +149,7 @@ object ClientPlantform {
     })
     val schema: StructType = (new StructType)
       .add("operator", StringType, nullable = true)
-      .add("networkType", IntegerType, nullable = true)
+      .add("NetworkType", IntegerType, nullable = true)
       .add("systemType", IntegerType, nullable = true)
       .add("deviceType", IntegerType, nullable = true)
       .add("requestmode", IntegerType, nullable = true)
@@ -161,7 +161,7 @@ object ClientPlantform {
       .add("adorderid", IntegerType, nullable = true)
     val df: DataFrame = spark.createDataFrame(rowRDD, schema)
     df.createOrReplaceTempView("device")
-    spark.sql("select operator, networkType, systemType, deviceType, " +
+    spark.sql("select operator, NetworkType, systemType, deviceType, " +
       "(case when requestmode=1 and processnode>=1 then 1 else 0 end) as originalRequest, " +
       "(case when requestmode=1 and processnode>=2 then 1 else 0 end) as validRequest, " +
       "(case when requestmode=1 and processnode>=3 then 1 else 0 end) as advRequest, " +
@@ -174,25 +174,5 @@ object ClientPlantform {
       "from device ").cache().createOrReplaceTempView("tmp_device")
   }
 
-  /**
-    * 准备sparkSession
-    *
-    * @return
-    */
-  private def firestOfAll(): SparkSession = {
-    //    val session: SparkSession = SparkSession.builder()
-    //      .appName("DMP")
-    //      .master("local[*]")
-    //      .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
-    val builder: SparkSession.Builder = SparkSession.builder().config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").appName(ArealDistribution.getClass.getSimpleName)
 
-    //若是本地集群模式，需要单独设置
-    if (ResourcesUtils.dMode.toString.toLowerCase().equals("local")) {
-      builder.master("local[*]")
-    }
-
-    val spark: SparkSession = builder.getOrCreate()
-
-    spark
-  }
 }

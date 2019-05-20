@@ -1,8 +1,7 @@
 package top.newforesee.dao;
 
 
-import top.newforesee.bean.CityCountBean;
-import top.newforesee.bean.networkType;
+import top.newforesee.bean.NetworkType;
 
 import java.util.List;
 
@@ -11,5 +10,5 @@ import java.util.List;
  * creat by newforesee 2019/1/21
  */
 public interface INetworkImpl {
-   void saveToDB(List<networkType> beans);
+   void saveToDB(List<NetworkType> beans);
 }
