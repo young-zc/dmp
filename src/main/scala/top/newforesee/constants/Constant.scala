@@ -6,5 +6,6 @@ object Constant {
   val MED = "top.newforesee.job.ArealDistribution"
   val CLI = "top.newforesee.job.ArealDistribution"
   val ETL = "top.newforesee.job.TransEtlJob"
-  val PATH = "/Users/newforesee/Intellij Project/zhydmp/src/main/resources"
+  //val PATH = "/Users/newforesee/Intellij Project/zhydmp/src/main/resources"
+  val PATH = "hdfs://newforesee:9000/spark"
 }

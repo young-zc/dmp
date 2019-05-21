@@ -7,8 +7,7 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SQLContext, SparkSession}
 import top.newforesee.bean.CityCountBean
-import top.newforesee.dao.ICityCount
-import top.newforesee.dao.impl.CityCountImpl
+import top.newforesee.dao.{CityCountImpl, ICityCount}
 import top.newforesee.job.base.Job
 import top.newforesee.utils.{DBCPUtil, ResourcesUtils, Utils}
 

@@ -8,11 +8,6 @@ import java.util.Properties;
 
 /**
  * Description：资源文件信息读取工具类<br/>
- * Copyright (c) ， 2018， Jansonxu <br/>
- * This program is protected by copyright laws. <br/>
- *
- * @author 徐文波
- * @version : 1.0
  */
 public class ResourcesUtils {
     private static Properties properties;

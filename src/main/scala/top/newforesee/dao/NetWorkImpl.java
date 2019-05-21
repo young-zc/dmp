@@ -1,4 +1,4 @@
-package top.newforesee.dao.impl;
+package top.newforesee.dao;
 
 import org.apache.commons.dbutils.QueryRunner;
 import top.newforesee.bean.NetworkType;
