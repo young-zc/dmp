@@ -41,7 +41,7 @@ object ArealDistribution extends Job {
     //保存到数据库
     saveAndSaveToDB(rddCc)
     //释放资源
-    spark.close()
+//    spark.close()
   }
 
   /**

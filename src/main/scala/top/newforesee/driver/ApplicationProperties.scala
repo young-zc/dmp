@@ -18,7 +18,7 @@ object ApplicationProperties {
   val hmErrors: util.Map[String, String] = new util.HashMap[String, String]()
   hmErrors.put("E001", "ERROR :: E001 - Missing parameter - %s=?")
   hmErrors.put("E002", "ERROR :: E002 - Dependency missing - %s")
-  hmErrors.put("E003", "ERROR :: E003 - Argument is empty required option - %s=?")
+  hmErrors.put("E003", "ERROR :: E003 - Illegal parameter exception - %s Must be:etl\\all\\jobs\\med\\cli\\are ")
 
 
   def getError(sCode: String, sBuild: String): String = hmErrors.get(sCode).format(sBuild)
@@ -47,13 +47,13 @@ object ApplicationProperties {
     this._CheckArgs()
     //etl,all,jobs,med,cli,are
     ACTION.toLowerCase() match {
-      case "etl" => PACKAGENAMES :+ Constant
-      case "all" => PACKAGENAMES :+
+      case "etl" => PACKAGENAMES :+ Constant.ETL
+      case "all" => PACKAGENAMES :+ Constant.ETL:+ Constant.ARE :+ Constant.CLI +: Constant.MED
       case "jobs" => PACKAGENAMES :+ Constant.ARE :+ Constant.CLI +: Constant.MED
-      case "med" => PACKAGENAMES
-      case "cli" => PACKAGENAMES
-      case "are" => PACKAGENAMES
-      case _ =>
+      case "med" => PACKAGENAMES :+ Constant.MED
+      case "cli" => PACKAGENAMES :+ Constant.CLI
+      case "are" => PACKAGENAMES :+ Constant.ARE
+      case _ => throw new ParseArgsException(this.getError("E003", "action"))
     }
   }
 
@@ -65,5 +65,5 @@ object ApplicationProperties {
   }
 
 
-  override def toString = s"ApplicationProperties($ACTION, $PACKAGENAME)"
+  override def toString = s"ApplicationProperties($ACTION, $PACKAGENAMES)"
 }

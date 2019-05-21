@@ -23,7 +23,18 @@ object Utils {
 
     val spark: SparkSession = builder.getOrCreate()
 
+
     spark
+  }
+
+  /**
+    * 保存数据到数据库
+    * @param df
+    * @param tableName
+    * @param mode
+    */
+  def saveAndSaveToDB(df:DataFrame,tableName:String,mode:String="overwrite"): Unit ={
+    df.write.mode(mode).jdbc(DBCPUtil.getProperties.getProperty("url"),tableName,DBCPUtil.getProperties)
   }
 
   /**

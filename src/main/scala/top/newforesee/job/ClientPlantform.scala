@@ -7,23 +7,25 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{IntegerType, StringType, StructType}
 import org.apache.spark.sql._
 import top.newforesee.bean.{CityCountBean, NetworkType}
+import top.newforesee.constants.Constant
 import top.newforesee.dao.INetworkImpl
 import top.newforesee.dao.impl.{CityCountImpl, NetWorkImpl}
+import top.newforesee.job.base.Job
 import top.newforesee.utils.{DBCPUtil, ResourcesUtils, Utils}
 
 /**
   * xxx
   * creat by newforesee 2019/1/25
   */
-object ClientPlantform {
+object ClientPlantform extends Job {
 
 
-  def main(args: Array[String]): Unit = {
-    //初始化
-    val spark: SparkSession = Utils.getSpark(this.getClass.getSimpleName)
-    val sc: SQLContext = spark.sqlContext
+  override def run(): Unit = {
+    //    //初始化
+    //    val spark: SparkSession = Utils.getSpark()
+    //    val sc: SQLContext = spark.sqlContext
     //加载数据并注册临时表device,tmp_device
-    loadData(spark: SparkSession, sc: SQLContext)
+    loadData()
     //spark.sql("select * from device").show()
 
     //按照运营商:1,移动  2,联通  3,电信  4,未知
@@ -40,6 +42,7 @@ object ClientPlantform {
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
       "from tmp_device group by operator)")
+    //operator.show()
 
 
     //按照网络类型  1,2G  2,3G  3,wifi  4,未知  5,4G
@@ -58,9 +61,10 @@ object ClientPlantform {
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
       "from tmp_device group by networkTypes order by networkTypes)")
+    //networkType.show()
 
     //按照设备类型 1,手机 2,平板
-    spark.sql("select  *," +
+    val deviceType: DataFrame = spark.sql("select  *," +
       "(case when partInBidding=0 then 0 else successBidding/partInBidding end) biddingRate, " +
       "(case when show=0 then 0 else click/show end) clickRate " +
       "from (select " +
@@ -74,10 +78,11 @@ object ClientPlantform {
       "sum(successBidding) successBidding, " +
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
-      "from tmp_device group by deviceType order by deviceType)").show()
+      "from tmp_device group by deviceType order by deviceType)")
+    //deviceType.show()
 
     //1：android   2：ios   3：wp
-    spark.sql("select  *," +
+    val platformType: DataFrame = spark.sql("select  *," +
       "(case when partInBidding=0 then 0 else successBidding/partInBidding end) biddingRate, " +
       "(case when show=0 then 0 else click/show end) clickRate " +
       "from (select " +
@@ -91,15 +96,30 @@ object ClientPlantform {
       "sum(successBidding) successBidding, " +
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
-      "from tmp_device group by systemType order by systemType)").show()
+      "from tmp_device group by systemType order by systemType)")
 
+    //platformType.show()
 
 
     val properties: Properties = DBCPUtil.getProperties
-    //NetworkType.write.jdbc(properties.getProperty("url"), "networkTypes", properties)
-    //operator.write.jdbc(properties.getProperty("url"), "operator", properties)
 
+    def logoutSaving(format:String): Unit =logger.warn("INFO:: Saving >>>>> %s table to DB...".format(format))
+    def logoutSaved(format:String): Unit =logger.warn("INFO:: table >>>>%s has SAVED to DB...".format(format))
+
+    logoutSaving("networkType")
+    Utils.saveAndSaveToDB(networkType, "networkType")
+    logoutSaved("networkType")
+    logoutSaving("operator")
+    Utils.saveAndSaveToDB(operator, "operator")
+    logoutSaved("operator")
+    logoutSaving("deviceType")
+    Utils.saveAndSaveToDB(deviceType, "deviceType")
+    logoutSaved("deviceType")
+    logoutSaving("platformType")
+    Utils.saveAndSaveToDB(platformType, "platformType")
+    logoutSaved("platformType")
   }
+
 
   /**
     * 保存文件并存入数据库
@@ -107,7 +127,7 @@ object ClientPlantform {
     * @param rddCc 结果数据集
     */
   private def saveAndSaveToDB(rddCc: RDD[NetworkType]): Unit = {
-    rddCc.saveAsTextFile("/Users/newforesee/Intellij Project/DMP/src/main/resources/json")
+    //rddCc.saveAsTextFile("/Users/newforesee/Intellij Project/DMP/src/main/resources/json")
     rddCc.foreachPartition((iter: Iterator[NetworkType]) => {
       if (iter.nonEmpty) {
         val dao: INetworkImpl = new NetWorkImpl
@@ -123,11 +143,9 @@ object ClientPlantform {
   /**
     * 加载数据并注册临时表
     *
-    * @param spark
-    * @param sc
     */
-  def loadData(spark: SparkSession, sc: SQLContext) = {
-    val ods: Dataset[Row] = spark.read.parquet("/Users/newforesee/Intellij Project/DMP/src/main/resources/data_raw").coalesce(3)
+  def loadData(): Unit = {
+    val ods: Dataset[Row] = spark.read.parquet(Constant.PATH + "/data_raw").coalesce(3)
     val rowRDD: RDD[Row] = ods.rdd.map((row: Row) => {
       //1,移动  2,联通  3,电信  4,未知
       //1,2G  2,3G  3,wifi  4,未知  5,4G
