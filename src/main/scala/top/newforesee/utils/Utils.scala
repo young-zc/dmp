@@ -22,7 +22,7 @@ object Utils {
     }
 
     val spark: SparkSession = builder.getOrCreate()
-
+    spark.sparkContext.setLogLevel("warn")
 
     spark
   }
