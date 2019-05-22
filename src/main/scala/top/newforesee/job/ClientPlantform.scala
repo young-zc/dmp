@@ -100,7 +100,7 @@ object ClientPlantform extends Job {
     platformType.show()
 
 
-    val properties: Properties = DBCPUtil.getProperties
+    //val properties: Properties = DBCPUtil.getProperties
 
     def logoutSaving(format:String): Unit =logger.warn("INFO:: Saving >>>>> %s table to DB...".format(format))
     def logoutSaved(format:String): Unit =logger.warn("INFO:: table >>>>%s has SAVED to DB...".format(format))
