@@ -12,7 +12,7 @@ object ApplicationProperties {
 
   //ACTION:etl,all,jobs,med,cli,are
   var ACTION = ""
-  val PACKAGENAMES: Seq[String] = Seq()
+  var PACKAGENAMES: Array[String] = Array[String]()
   //  val PACKAGE_NAME: String = "%s".format(this.getClass.getPackage.getName.replaceFirst("driver", "connector"))
 
   val hmErrors: util.Map[String, String] = new util.HashMap[String, String]()
@@ -47,12 +47,12 @@ object ApplicationProperties {
     this._CheckArgs()
     //etl,all,jobs,med,cli,are
     ACTION.toLowerCase() match {
-      case "etl" => PACKAGENAMES :+ Constant.ETL
-      case "all" => PACKAGENAMES :+ Constant.ETL:+ Constant.ARE :+ Constant.CLI +: Constant.MED
-      case "jobs" => PACKAGENAMES :+ Constant.ARE :+ Constant.CLI +: Constant.MED
-      case "med" => PACKAGENAMES :+ Constant.MED
-      case "cli" => PACKAGENAMES :+ Constant.CLI
-      case "are" => PACKAGENAMES :+ Constant.ARE
+      case "etl" => PACKAGENAMES :+= Constant.ETL
+      case "all" => PACKAGENAMES = Array(Constant.ETL , Constant.ARE , Constant.CLI , Constant.MED)
+      case "jobs" => PACKAGENAMES = Array(Constant.ARE , Constant.CLI , Constant.MED)
+      case "med" => PACKAGENAMES :+= Constant.MED
+      case "cli" => PACKAGENAMES :+= Constant.CLI
+      case "are" => PACKAGENAMES :+= Constant.ARE
       case _ => throw new ParseArgsException(this.getError("E003", "action"))
     }
   }

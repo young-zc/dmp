@@ -3,28 +3,27 @@ package top.newforesee.job
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{IntegerType, StringType, StructType}
 import org.apache.spark.sql._
+import top.newforesee.constants.Constant
+import top.newforesee.job.base.Job
 import top.newforesee.utils.ResourcesUtils
 
 /**
   * 媒体相关分析,渠道报表
   * creat by newforesee 2019-02-02
   */
-object MediaAnalysis {
-  def main(args: Array[String]): Unit = {
+object MediaAnalysis extends Job{
+  override def run(): Unit = {
 
-    val session: SparkSession = firestOfAll()
-    createTmpTable(session.sqlContext, session)
+    createTmpTable()
 
   }
 
 
   /**
     * 将原始数据提取字段构建临时表
-    * @param ssc
-    * @param session
     */
-  private def createTmpTable(ssc: SQLContext, session: SparkSession): Unit = {
-    val ods: Dataset[Row] = session.read.parquet("/Users/newforesee/Intellij Project/DMP/src/main/resources/data_raw").coalesce(3)
+  private def createTmpTable(): Unit = {
+    val ods: Dataset[Row] = spark.read.parquet(Constant.PATH+"/data_raw").coalesce(3)
 
     val rowRdd: RDD[Row] = ods.rdd.map((r: Row) => {
       val strings: Array[String] = r.toString().split(",")
@@ -51,10 +50,10 @@ object MediaAnalysis {
       .add("iswin", IntegerType, nullable = true)
       .add("adorderid", IntegerType, nullable = true)
 
-    val areal: DataFrame = ssc.createDataFrame(rowRdd, structType)
+    val areal: DataFrame = spark.createDataFrame(rowRdd, structType)
     areal.createOrReplaceTempView("app_ods")
     val app_tmp: DataFrame =
-      ssc.sql(
+      spark.sql(
         "select applicationName," +
           "sum((case when requestmode=1 and processnode>=1 then 1 else 0 end)) as originalRequest, " +
           "sum((case when requestmode=1 and processnode>=2 then 1 else 0 end)) as validRequest, " +
@@ -92,5 +91,6 @@ object MediaAnalysis {
 
     spark
   }
+
 
 }

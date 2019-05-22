@@ -8,8 +8,7 @@ import org.apache.spark.sql.types.{IntegerType, StringType, StructType}
 import org.apache.spark.sql._
 import top.newforesee.bean.{CityCountBean, NetworkType}
 import top.newforesee.constants.Constant
-import top.newforesee.dao.INetworkImpl
-import top.newforesee.dao.impl.{CityCountImpl, NetWorkImpl}
+import top.newforesee.dao.{INetworkImpl, NetWorkImpl}
 import top.newforesee.job.base.Job
 import top.newforesee.utils.{DBCPUtil, ResourcesUtils, Utils}
 
@@ -41,8 +40,8 @@ object ClientPlantform extends Job {
       "sum(successBidding) successBidding, " +
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
-      "from tmp_device group by operator)")
-    //operator.show()
+      "from tmp_device group by operator)").cache()
+    operator.show()
 
 
     //按照网络类型  1,2G  2,3G  3,wifi  4,未知  5,4G
@@ -60,8 +59,8 @@ object ClientPlantform extends Job {
       "sum(successBidding) successBidding, " +
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
-      "from tmp_device group by networkTypes order by networkTypes)")
-    //networkType.show()
+      "from tmp_device group by networkTypes order by networkTypes)").cache()
+    networkType.show()
 
     //按照设备类型 1,手机 2,平板
     val deviceType: DataFrame = spark.sql("select  *," +
@@ -78,8 +77,8 @@ object ClientPlantform extends Job {
       "sum(successBidding) successBidding, " +
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
-      "from tmp_device group by deviceType order by deviceType)")
-    //deviceType.show()
+      "from tmp_device group by deviceType order by deviceType)").cache()
+    deviceType.show()
 
     //1：android   2：ios   3：wp
     val platformType: DataFrame = spark.sql("select  *," +
@@ -96,9 +95,9 @@ object ClientPlantform extends Job {
       "sum(successBidding) successBidding, " +
       "sum(show) as show,sum(click) as click," +
       "sum(advCost) advCost,sum(advCharge) advCharge " +
-      "from tmp_device group by systemType order by systemType)")
+      "from tmp_device group by systemType order by systemType)").cache()
 
-    //platformType.show()
+    platformType.show()
 
 
     val properties: Properties = DBCPUtil.getProperties
