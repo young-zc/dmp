@@ -6,9 +6,6 @@ import java.math.BigDecimal;
  * Description：数字格工具类<br/>
  * Copyright (c) ， 2018， Jansonxu <br/>
  * This program is protected by copyright laws. <br/>
- *
- * @author 徐文波
- * @version : 1.0
  */
 public class NumberUtils {
 
