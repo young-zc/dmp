@@ -4,14 +4,17 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{IntegerType, StringType, StructType}
 import org.apache.spark.sql._
 import top.newforesee.constants.Constant
+import org.apache.spark.sql.functions._
 import top.newforesee.job.base.Job
 import top.newforesee.utils.ResourcesUtils
+
 
 /**
   * 媒体相关分析,渠道报表
   * creat by newforesee 2019-02-02
   */
 object MediaAnalysis extends Job{
+  import spark.implicits._
   override def run(): Unit = {
 
     createTmpTable()
@@ -65,9 +68,13 @@ object MediaAnalysis extends Job{
           "sum((case when iseffective=1 and isbilling=1 and iswin=1  then 1 else 0 end)) advCost, " +
           "sum((case when iseffective=1 and isbilling=1 and iswin=1  then 1 else 0 end)) advCharge " +
           "from app_ods " +
-          "group by applicationName")
+          "group by applicationName").cache()
     app_tmp.createOrReplaceTempView("app_tmp")
-    app_tmp.show(50)
+    app_tmp.show()
+//    app_tmp.groupBy($"applicationName").agg(
+//      count($"originalRequest") as "originalRequest",
+//
+//    )
   }
 
   /**

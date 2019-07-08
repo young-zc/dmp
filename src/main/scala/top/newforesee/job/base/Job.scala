@@ -16,6 +16,7 @@ trait Job {
   //hmErrors.put("E002", "ERROR :: E002 - Oozie Running Exception - %s")
   val spark: SparkSession = Utils.getSpark()
   spark.sparkContext.setLogLevel("warn")
+  import spark.implicits._
 
   def getError(sCode: String, sBuild: String): String = hmErrors.get(sCode).format(sBuild)
 
