@@ -13,11 +13,6 @@ import java.util.List;
 
 /**
  * Description：对某个广告点击超过100次的黑名单用户操作dao层接口实现类<br/>
- * Copyright (c) ， 2018， Jansonxu <br/>
- * This program is protected by copyright laws. <br/>
- *
- * @author 徐文波
- * @version : 1.0
  */
 public class AdBlackListDaoImpl implements IAdBlackListDao {
     private QueryRunner qr = new QueryRunner(DBCPUtil.getDataSource());
