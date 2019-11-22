@@ -5,11 +5,8 @@ import java.util.Objects;
 
 /**
  * Description：对某个广告点击超过100次的黑名单用户封装实体类<br/>
- * Copyright (c) ， 2018， Jansonxu <br/>
- * This program is protected by copyright laws. <br/>
- *
- * @author 徐文波
- * @version : 1.0
+ * Copyright (c) ， 2018， Jansonxu
+ * This program is protected by copyright laws.
  */
 public class AdBlackList implements Serializable {
     /**
