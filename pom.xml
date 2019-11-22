@@ -9,7 +9,7 @@
     <version>1.0</version>
     <properties>
         <scala.version>2.11.8</scala.version>
-        <spark.version>2.2.3</spark.version>
+        <spark.version>2.4.4</spark.version>
         <jackson.version>2.6.6</jackson.version>
         <hbase.version>1.2.6</hbase.version>
     </properties>
